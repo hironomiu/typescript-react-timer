@@ -7,13 +7,23 @@ test('renders learn react link', () => {
   render(<App />)
   expect(screen.getByText('Timer App')).toBeInTheDocument()
 
+  // MEMO: TimerInputBoard
   expect(screen.getByTestId('時')).toBeInTheDocument()
   expect(screen.getByTestId('分')).toBeInTheDocument()
   expect(screen.getByTestId('秒')).toBeInTheDocument()
   expect(screen.getByText('時')).toBeInTheDocument()
   expect(screen.getByText('分')).toBeInTheDocument()
   expect(screen.getByText('秒')).toBeInTheDocument()
+
+  // MEMO: TimerLine
+  expect(screen.getByText('00:00:00')).toBeInTheDocument()
   userEvent.type(screen.getByTestId('時'), '1')
+  expect(screen.getByText('01:00:00')).toBeInTheDocument()
+  userEvent.type(screen.getByTestId('分'), '1')
+  expect(screen.getByText('01:01:00')).toBeInTheDocument()
+  userEvent.type(screen.getByTestId('秒'), '1')
+  expect(screen.getByText('01:01:01')).toBeInTheDocument()
+
   // screen.debug()
   // MEMO: TimerButtonBoard
   expect(screen.getByRole('button', { name: 'START' })).toBeInTheDocument()
