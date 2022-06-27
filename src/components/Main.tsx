@@ -21,7 +21,7 @@ const Main = () => {
   } = useMain()
 
   return (
-    <main className="flex flex-col justify-center items-center my-4">
+    <main className="flex flex-col justify-center items-center mt-8 mb-4">
       <TimerInputBoard
         isStart={isStart}
         hours={hours}

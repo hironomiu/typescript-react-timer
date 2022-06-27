@@ -2,7 +2,7 @@ type Props = {
   min: number
   max: number
   value: number
-  handleChange: (e: any) => void
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   col: string
   isStart: boolean
 }
