@@ -6,6 +6,7 @@ type Props = {
   col: string
   isStart: boolean
 }
+
 const TimerInput = (props: Props) => {
   return (
     <div

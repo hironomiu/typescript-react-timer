@@ -2,6 +2,7 @@ import TimerInputBoard from './TimerInputBoard'
 import TimerLine from './TimerLine'
 import TimerButtonBoard from './TimerButtonBoard'
 import { useMain } from '../hooks/useMain'
+
 const Main = () => {
   const {
     isStart,

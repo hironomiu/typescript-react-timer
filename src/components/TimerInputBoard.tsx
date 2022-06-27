@@ -9,6 +9,7 @@ type Props = {
   handleChangeMinutes: (e: React.ChangeEvent<HTMLInputElement>) => void
   handleChangeSeconds: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
+
 const TimerInputBoard = (props: Props) => {
   return (
     <div className="flex">
