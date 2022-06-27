@@ -3,6 +3,8 @@ import { Timer } from '../types'
 import { calc, createTimer } from '../libs'
 
 export const useMain = () => {
+  const [isStart, setIsStart] = useState(false)
+
   const [hours, setHours] = useState<number>(0)
   const [minutes, setMinutes] = useState<number>(0)
   const [seconds, setSeconds] = useState<number>(0)
@@ -88,6 +90,8 @@ export const useMain = () => {
   }
 
   return {
+    isStart,
+    setIsStart,
     hours,
     setHours,
     minutes,

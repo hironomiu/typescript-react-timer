@@ -4,6 +4,8 @@ import TimerButtonBoard from './TimerButtonBoard'
 import { useMain } from '../hooks/useMain'
 const Main = () => {
   const {
+    isStart,
+    setIsStart,
     hours,
     setHours,
     minutes,
@@ -21,6 +23,7 @@ const Main = () => {
   return (
     <main className="flex flex-col justify-center items-center my-4">
       <TimerInputBoard
+        isStart={isStart}
         hours={hours}
         minutes={minutes}
         seconds={seconds}
@@ -30,6 +33,8 @@ const Main = () => {
       />
       <TimerLine timer={timer} />
       <TimerButtonBoard
+        isStart={isStart}
+        setIsStart={setIsStart}
         hours={hours}
         minutes={minutes}
         seconds={seconds}

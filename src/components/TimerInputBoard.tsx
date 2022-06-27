@@ -1,6 +1,7 @@
 import TimerInput from './TimerInput'
 
 type Props = {
+  isStart: boolean
   hours: number
   minutes: number
   seconds: number
@@ -17,6 +18,7 @@ const TimerInputBoard = (props: Props) => {
         value={props.hours}
         handleChange={props.handleChangeHours}
         col={'時'}
+        isStart={props.isStart}
       />
       <TimerInput
         min={-1}
@@ -24,6 +26,7 @@ const TimerInputBoard = (props: Props) => {
         value={props.minutes}
         handleChange={props.handleChangeMinutes}
         col={'分'}
+        isStart={props.isStart}
       />
       <TimerInput
         min={-1}
@@ -31,6 +34,7 @@ const TimerInputBoard = (props: Props) => {
         value={props.seconds}
         handleChange={props.handleChangeSeconds}
         col={'秒'}
+        isStart={props.isStart}
       />
     </div>
   )

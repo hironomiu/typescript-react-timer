@@ -9,6 +9,8 @@ type Props = {
   hours: number
   minutes: number
   seconds: number
+  isStart: boolean
+  setIsStart: (bool: boolean) => void
   timerCount: () => NodeJS.Timer
   setHours: (num: number) => void
   setMinutes: (num: number) => void
@@ -16,7 +18,7 @@ type Props = {
   setTimer: (nums: { hours: number; minutes: number; seconds: number }) => void
 }
 const TimerButtonBoard = (props: Props) => {
-  const [isStart, setIsStart] = useState(false)
+  // const [isStart, setIsStart] = useState(false)
   const [isRestart, setIsRestart] = useState(true)
   const [timerId, setTimerId] = useState<NodeJS.Timer>()
 
@@ -32,9 +34,9 @@ const TimerButtonBoard = (props: Props) => {
       props.setHours(0)
       props.setMinutes(0)
       props.setSeconds(0)
-      setIsStart(false)
+      props.setIsStart(false)
     }
-  }, [props, setIsStart, timerId])
+  }, [props, props.setIsStart, timerId])
 
   return (
     <div className="flex mt-2">
@@ -42,11 +44,11 @@ const TimerButtonBoard = (props: Props) => {
         onClick={() => {
           const id = props.timerCount()
           setTimerId(id)
-          setIsStart(true)
+          props.setIsStart(true)
         }}
         className="w-20 h-8 rounded mx-2 bg-blue-300 disabled:bg-gray-200"
         disabled={
-          isStart ||
+          props.isStart ||
           !(props.hours > 0 || props.minutes > 0 || props.seconds > 0)
         }
       >
@@ -69,7 +71,7 @@ const TimerButtonBoard = (props: Props) => {
           setIsRestart(false)
         }}
         className="w-16 h-8 rounded mx-2 bg-blue-300 disabled:bg-gray-200"
-        disabled={!isStart || !isRestart}
+        disabled={!props.isStart || !isRestart}
       >
         STOP
       </button>
@@ -83,7 +85,7 @@ const TimerButtonBoard = (props: Props) => {
             minutes: 0,
             seconds: 0,
           })
-          setIsStart(false)
+          props.setIsStart(false)
           setIsRestart(true)
         }}
         className="w-20 h-8 rounded mx-2 bg-blue-300 disabled:bg-gray-200"
