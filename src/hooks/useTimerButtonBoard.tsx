@@ -44,8 +44,8 @@ export const useTimerButonBoard = (props: Props) => {
 
   const handleClickRestart = () => {
     const id = props.timerCount()
-    setIsRestart(true)
     setTimerId(id)
+    setIsRestart(true)
   }
 
   const handleClickStop = () => {

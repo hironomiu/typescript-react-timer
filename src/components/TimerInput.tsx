@@ -20,6 +20,8 @@ const TimerInput = (props: Props) => {
         type="number"
         min={props.min}
         max={props.max}
+        // TODO: testidを別途Propsで受け取り設定する
+        data-testid={props.col}
         value={props.value}
         onChange={props.handleChange}
         className="border-none outline-none disabled:text-gray-500"
