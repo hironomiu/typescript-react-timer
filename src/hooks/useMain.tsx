@@ -31,11 +31,7 @@ export const useMain = () => {
 
   const handleChangeHours = (e: React.ChangeEvent<HTMLInputElement>) => {
     let hours = Number(e.target.value)
-    if (hours > 23) {
-      hours = 0
-    } else if (hours < 0) {
-      hours = 23
-    }
+    hours = hours > 23 ? 0 : hours < 0 ? 23 : hours
     setHours(() => {
       setTimer({ hours, minutes, seconds })
       return hours
@@ -44,11 +40,7 @@ export const useMain = () => {
 
   const handleChangeMinutes = (e: React.ChangeEvent<HTMLInputElement>) => {
     let minutes = Number(e.target.value)
-    if (minutes > 59) {
-      minutes = 0
-    } else if (minutes < 0) {
-      minutes = 59
-    }
+    minutes = minutes > 59 ? 0 : minutes < 0 ? 59 : minutes
     setMinutes(() => {
       setTimer({ hours, minutes, seconds })
       return minutes
@@ -57,11 +49,7 @@ export const useMain = () => {
 
   const handleChangeSeconds = (e: React.ChangeEvent<HTMLInputElement>) => {
     let seconds = Number(e.target.value)
-    if (seconds > 59) {
-      seconds = 0
-    } else if (seconds < 0) {
-      seconds = 59
-    }
+    seconds = seconds > 59 ? 0 : seconds < 0 ? 59 : seconds
     setSeconds(() => {
       setTimer({ hours, minutes, seconds })
       return seconds
