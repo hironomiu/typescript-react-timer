@@ -34,7 +34,7 @@ const TimerButtonBoard = (props: Props) => {
       props.setSeconds(0)
       setIsStart(false)
     }
-  }, [props.timer, setIsStart, timerId])
+  }, [props, setIsStart, timerId])
 
   return (
     <div className="flex mt-2">
