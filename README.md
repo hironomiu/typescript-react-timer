@@ -32,6 +32,6 @@ npm run test
 npx create-react-app --template typescript .
 ```
 
-## Tailwind
+### Tailwind
 
 [Tailwind CSS:create-react-app](https://tailwindcss.com/docs/guides/create-react-app)
