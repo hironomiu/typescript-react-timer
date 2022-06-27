@@ -5,9 +5,9 @@ type Props = {
   hours: number
   minutes: number
   seconds: number
-  handleChangeHours: (e: any) => void
-  handleChangeMinutes: (e: any) => void
-  handleChangeSeconds: (e: any) => void
+  handleChangeHours: (e: React.ChangeEvent<HTMLInputElement>) => void
+  handleChangeMinutes: (e: React.ChangeEvent<HTMLInputElement>) => void
+  handleChangeSeconds: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 const TimerInputBoard = (props: Props) => {
   return (
