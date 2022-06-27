@@ -16,15 +16,7 @@ export const useMain = () => {
 
   const timerCount = () => {
     const id = setInterval(() => {
-      setTimer((_prev) => {
-        const num = calc(_prev.hours, _prev.minutes, _prev.seconds)
-        const obj = createTimer(num - 1)
-        return {
-          hours: obj.hours,
-          minutes: obj.minutes,
-          seconds: obj.seconds,
-        }
-      })
+      setTimer((_prev) => createTimer(calc(_prev) - 1))
     }, 1000)
     return id
   }

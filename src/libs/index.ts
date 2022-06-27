@@ -1,11 +1,11 @@
-export const calc = (
-  hours: number,
-  minutes: number,
+type Calc = {
+  hours: number
+  minutes: number
   seconds: number
-): number => {
-  const result = hours * 60 * 60 + minutes * 60 + seconds
-  return result
 }
+
+export const calc = ({ hours, minutes, seconds }: Calc): number =>
+  hours * 60 * 60 + minutes * 60 + seconds
 
 export const createTimer = (num: number) => {
   const hours = Math.floor(num / 60 / 60)

@@ -23,21 +23,18 @@ export const useTimerButonBoard = (props: Props) => {
   const [isRestart, setIsRestart] = useState(true)
   const [timerId, setTimerId] = useState<NodeJS.Timer>()
 
-  // MEMO: 0秒以下は動作させない
+  // MEMO: 0秒以下は動作させない。タイマーを起動し0秒になったらアラートをあげる
   useEffect(() => {
-    const num = calc(
-      props.timer.hours,
-      props.timer.minutes,
-      props.timer.seconds
-    )
+    const num = calc(props.timer)
     if (num <= 0) {
       clearInterval(timerId)
       props.setHours(0)
       props.setMinutes(0)
       props.setSeconds(0)
+      if (props.isStart) setTimeout(() => alert('0!!'), 0)
       props.setIsStart(false)
     }
-  }, [props, props.setIsStart, timerId])
+  }, [props, timerId])
 
   const handleClickStart = () => {
     const id = props.timerCount()
