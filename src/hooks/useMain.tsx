@@ -30,63 +30,42 @@ export const useMain = () => {
   }
 
   const handleChangeHours = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const hours = Number(e.target.value)
+    let hours = Number(e.target.value)
     if (hours > 23) {
-      setHours(() => {
-        setTimer({ hours: 0, minutes, seconds })
-        return 0
-      })
+      hours = 0
     } else if (hours < 0) {
-      setHours(() => {
-        setTimer({ hours: 23, minutes, seconds })
-        return 23
-      })
-    } else {
-      setHours(() => {
-        setTimer({ hours: hours, minutes, seconds })
-        return hours
-      })
+      hours = 23
     }
+    setHours(() => {
+      setTimer({ hours, minutes, seconds })
+      return hours
+    })
   }
 
   const handleChangeMinutes = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const minutes = Number(e.target.value)
+    let minutes = Number(e.target.value)
     if (minutes > 59) {
-      setMinutes(() => {
-        setTimer({ hours, minutes: 0, seconds })
-        return 0
-      })
+      minutes = 0
     } else if (minutes < 0) {
-      setMinutes(() => {
-        setTimer({ hours, minutes: 59, seconds })
-        return 59
-      })
-    } else {
-      setMinutes(() => {
-        setTimer({ hours, minutes: minutes, seconds })
-        return minutes
-      })
+      minutes = 59
     }
+    setMinutes(() => {
+      setTimer({ hours, minutes, seconds })
+      return minutes
+    })
   }
 
   const handleChangeSeconds = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const seconds = Number(e.target.value)
+    let seconds = Number(e.target.value)
     if (seconds > 59) {
-      setSeconds(() => {
-        setTimer({ hours, minutes, seconds: 0 })
-        return 0
-      })
+      seconds = 0
     } else if (seconds < 0) {
-      setSeconds(() => {
-        setTimer({ hours, minutes, seconds: 59 })
-        return 59
-      })
-    } else {
-      setSeconds(() => {
-        setTimer({ hours, minutes, seconds: seconds })
-        return seconds
-      })
+      seconds = 59
     }
+    setSeconds(() => {
+      setTimer({ hours, minutes, seconds })
+      return seconds
+    })
   }
 
   return {
