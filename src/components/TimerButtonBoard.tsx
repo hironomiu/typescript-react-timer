@@ -6,6 +6,9 @@ type Props = {
     minutes: number
     seconds: number
   }
+  hours: number
+  minutes: number
+  seconds: number
   timerCount: () => NodeJS.Timer
   setHours: (num: number) => void
   setMinutes: (num: number) => void
@@ -26,6 +29,9 @@ const TimerButtonBoard = (props: Props) => {
     )
     if (num <= 0) {
       clearInterval(timerId)
+      props.setHours(0)
+      props.setMinutes(0)
+      props.setSeconds(0)
       setIsStart(false)
     }
   }, [props.timer, setIsStart, timerId])
@@ -39,7 +45,10 @@ const TimerButtonBoard = (props: Props) => {
           setIsStart(true)
         }}
         className="w-20 h-8 rounded mx-2 bg-blue-300 disabled:bg-gray-200"
-        disabled={isStart}
+        disabled={
+          isStart ||
+          !(props.hours > 0 || props.minutes > 0 || props.seconds > 0)
+        }
       >
         START
       </button>

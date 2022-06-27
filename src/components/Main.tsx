@@ -30,6 +30,9 @@ const Main = () => {
       />
       <TimerLine timer={timer} />
       <TimerButtonBoard
+        hours={hours}
+        minutes={minutes}
+        seconds={seconds}
         timer={timer}
         timerCount={timerCount}
         setHours={setHours}
