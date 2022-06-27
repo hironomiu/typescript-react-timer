@@ -1,52 +1,19 @@
-import { useState, useEffect } from 'react'
-import { calc } from '../libs'
-type Props = {
-  timer: {
-    hours: number
-    minutes: number
-    seconds: number
-  }
-  hours: number
-  minutes: number
-  seconds: number
-  isStart: boolean
-  setIsStart: (bool: boolean) => void
-  timerCount: () => NodeJS.Timer
-  setHours: (num: number) => void
-  setMinutes: (num: number) => void
-  setSeconds: (num: number) => void
-  setTimer: (nums: { hours: number; minutes: number; seconds: number }) => void
-}
-const TimerButtonBoard = (props: Props) => {
-  // const [isStart, setIsStart] = useState(false)
-  const [isRestart, setIsRestart] = useState(true)
-  const [timerId, setTimerId] = useState<NodeJS.Timer>()
+import { useTimerButonBoard, Props } from '../hooks/useTimerButtonBoard'
 
-  // MEMO: 0秒以下は動作させない
-  useEffect(() => {
-    const num = calc(
-      props.timer.hours,
-      props.timer.minutes,
-      props.timer.seconds
-    )
-    if (num <= 0) {
-      clearInterval(timerId)
-      props.setHours(0)
-      props.setMinutes(0)
-      props.setSeconds(0)
-      props.setIsStart(false)
-    }
-  }, [props, props.setIsStart, timerId])
+const TimerButtonBoard = (props: Props) => {
+  const {
+    isRestart,
+    handleClickStart,
+    handleClickRestart,
+    handleClickStop,
+    handleClickReset,
+  } = useTimerButonBoard(props)
 
   return (
     <div className="flex mt-2">
       <button
-        onClick={() => {
-          const id = props.timerCount()
-          setTimerId(id)
-          props.setIsStart(true)
-        }}
-        className="w-20 h-8 rounded mx-2 bg-blue-300 disabled:bg-gray-200"
+        onClick={handleClickStart}
+        className="w-20 h-8 rounded mx-2 bg-blue-400 text-white disabled:bg-gray-200 disabled:text-gray-400"
         disabled={
           props.isStart ||
           !(props.hours > 0 || props.minutes > 0 || props.seconds > 0)
@@ -55,40 +22,22 @@ const TimerButtonBoard = (props: Props) => {
         START
       </button>
       <button
-        onClick={() => {
-          const id = props.timerCount()
-          setIsRestart(true)
-          setTimerId(id)
-        }}
-        className="w-24 h-8 rounded mx-2 bg-blue-300 disabled:bg-gray-200"
+        onClick={handleClickRestart}
+        className="w-24 h-8 rounded mx-2 bg-blue-400 text-white disabled:bg-gray-200 disabled:text-gray-400"
         disabled={isRestart}
       >
         RESTART
       </button>
       <button
-        onClick={() => {
-          clearInterval(timerId)
-          setIsRestart(false)
-        }}
-        className="w-16 h-8 rounded mx-2 bg-blue-300 disabled:bg-gray-200"
+        onClick={handleClickStop}
+        className="w-16 h-8 rounded mx-2 bg-blue-400 text-white disabled:bg-gray-200 disabled:text-gray-400"
         disabled={!props.isStart || !isRestart}
       >
         STOP
       </button>
       <button
-        onClick={() => {
-          props.setHours(0)
-          props.setMinutes(0)
-          props.setSeconds(0)
-          props.setTimer({
-            hours: 0,
-            minutes: 0,
-            seconds: 0,
-          })
-          props.setIsStart(false)
-          setIsRestart(true)
-        }}
-        className="w-20 h-8 rounded mx-2 bg-blue-300 disabled:bg-gray-200"
+        onClick={handleClickReset}
+        className="w-20 h-8 rounded mx-2 bg-blue-400 text-white disabled:bg-gray-200 disabled:text-gray-400"
         disabled={isRestart}
       >
         RESET
