@@ -24,7 +24,6 @@ export const useMain = () => {
   const handleChangeHours = (e: React.ChangeEvent<HTMLInputElement>) => {
     let hours = Number(e.target.value)
     hours = hours > 23 ? 0 : hours < 0 ? 23 : hours
-    console.log(hours)
     setHours(() => {
       setTimer({ hours, minutes, seconds })
       return hours

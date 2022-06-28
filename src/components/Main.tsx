@@ -2,6 +2,8 @@ import TimerInputBoard from './TimerInputBoard'
 import TimerLine from './TimerLine'
 import TimerButtonBoard from './TimerButtonBoard'
 import { useMain } from '../hooks/useMain'
+import { useState } from 'react'
+import TimeUpModal from './modals/TimeUpModal'
 
 const Main = () => {
   const {
@@ -20,6 +22,9 @@ const Main = () => {
     handleChangeMinutes,
     handleChangeSeconds,
   } = useMain()
+
+  // TODO: とりあえず実装。hooksにもってく
+  const [isModalOn, setIsModalOn] = useState(false)
 
   return (
     <main className="flex flex-col justify-center items-center mt-8 mb-4">
@@ -45,7 +50,9 @@ const Main = () => {
         setMinutes={setMinutes}
         setSeconds={setSeconds}
         setTimer={setTimer}
+        setIsModalOn={setIsModalOn}
       />
+      {isModalOn ? <TimeUpModal setIsModalOn={setIsModalOn} /> : null}
     </main>
   )
 }

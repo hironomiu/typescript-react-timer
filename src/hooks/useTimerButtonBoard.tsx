@@ -7,6 +7,7 @@ export type Props = {
     minutes: number
     seconds: number
   }
+  setIsModalOn: (bool: boolean) => void
   hours: number
   minutes: number
   seconds: number
@@ -31,7 +32,7 @@ export const useTimerButonBoard = (props: Props) => {
       props.setHours(0)
       props.setMinutes(0)
       props.setSeconds(0)
-      if (props.isStart) setTimeout(() => alert('0!!'), 0)
+      if (props.isStart) setTimeout(() => props.setIsModalOn(true), 0)
       props.setIsStart(false)
     }
   }, [props, timerId])
