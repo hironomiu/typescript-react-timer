@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import TimerMain from './components/timer/TimerMain'
+import Main from './components/timer2/Main'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
             }
           >
             <Route path="/timer" element={<TimerMain />} />
+            <Route path="/timer2" element={<Main />} />
           </Route>
         </Routes>
       </BrowserRouter>
