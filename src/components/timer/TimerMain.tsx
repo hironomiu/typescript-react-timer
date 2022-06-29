@@ -27,7 +27,7 @@ const TimerMain = () => {
   const [isModalOn, setIsModalOn] = useState(false)
 
   return (
-    <main className="flex flex-col justify-center items-center mt-8 mb-4">
+    <>
       <TimerInputBoard
         isStart={isStart}
         hours={hours}
@@ -53,7 +53,7 @@ const TimerMain = () => {
         setIsModalOn={setIsModalOn}
       />
       {isModalOn ? <TimeUpModal setIsModalOn={setIsModalOn} /> : null}
-    </main>
+    </>
   )
 }
 

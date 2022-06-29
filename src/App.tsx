@@ -1,8 +1,10 @@
 import { Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './components/Home'
 import Layout from './components/Layout'
+import Main from './components/Main'
 import TimerMain from './components/timer/TimerMain'
-import Main from './components/timer2/Main'
+import Timer2Main from './components/timer2/Timer2Main'
 
 const App = () => {
   return (
@@ -17,8 +19,11 @@ const App = () => {
               </Suspense>
             }
           >
-            <Route path="/timer" element={<TimerMain />} />
-            <Route path="/timer2" element={<Main />} />
+            <Route path="/" element={<Main />}>
+              <Route path="/" element={<Home />}></Route>
+              <Route path="/timer" element={<TimerMain />} />
+              <Route path="/timer2" element={<Timer2Main />} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
