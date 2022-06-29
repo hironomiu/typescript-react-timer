@@ -7,14 +7,14 @@ const Home = () => {
       <h1 className="text-3xl mb-4">Hello!!</h1>
       <Link
         to="/timer"
-        data-testid="timer-link"
+        data-testid="home-timer-link"
         className="mx-2 text-blue-600 "
       >
         Timer
       </Link>
       <Link
         to="/timer2"
-        data-testid="timer2-link"
+        data-testid="home-timer2-link"
         className="mx-2 text-blue-600"
       >
         Timer2
