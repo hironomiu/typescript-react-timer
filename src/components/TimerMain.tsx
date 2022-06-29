@@ -5,7 +5,7 @@ import { useMain } from '../hooks/useMain'
 import { useState } from 'react'
 import TimeUpModal from './modals/TimeUpModal'
 
-const Main = () => {
+const TimerMain = () => {
   const {
     isStart,
     setIsStart,
@@ -57,4 +57,4 @@ const Main = () => {
   )
 }
 
-export default Main
+export default TimerMain

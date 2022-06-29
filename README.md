@@ -30,6 +30,7 @@ npm run test
 
 ```
 npx create-react-app --template typescript .
+npm install react-router-dom
 ```
 
 ### Tailwind

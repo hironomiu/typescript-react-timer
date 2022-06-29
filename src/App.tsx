@@ -1,12 +1,25 @@
 import { Suspense } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
+import TimerMain from './components/TimerMain'
 
 const App = () => {
   return (
     <>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Layout />
-      </Suspense>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <Layout />
+              </Suspense>
+            }
+          >
+            <Route path="/timer" element={<TimerMain />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
