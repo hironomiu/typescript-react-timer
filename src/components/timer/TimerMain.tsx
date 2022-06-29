@@ -1,9 +1,9 @@
 import TimerInputBoard from './TimerInputBoard'
 import TimerLine from './TimerLine'
 import TimerButtonBoard from './TimerButtonBoard'
-import { useMain } from '../hooks/useMain'
+import { useMain } from '../../hooks/useMain'
 import { useState } from 'react'
-import TimeUpModal from './modals/TimeUpModal'
+import TimeUpModal from '../modals/TimeUpModal'
 
 const TimerMain = () => {
   const {

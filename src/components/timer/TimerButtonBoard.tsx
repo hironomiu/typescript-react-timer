@@ -1,4 +1,4 @@
-import { useTimerButonBoard, Props } from '../hooks/useTimerButtonBoard'
+import { useTimerButonBoard, Props } from '../../hooks/useTimerButtonBoard'
 
 const TimerButtonBoard = (props: Props) => {
   const {

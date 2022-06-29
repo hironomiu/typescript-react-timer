@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
-import TimerMain from './components/TimerMain'
+import TimerMain from './components/timer/TimerMain'
 
 const App = () => {
   return (
