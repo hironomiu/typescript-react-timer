@@ -1,4 +1,5 @@
 import { useTimerButonBoard, Props } from '../../hooks/useTimerButtonBoard'
+import Button from '../parts/Button'
 
 const TimerButtonBoard = (props: Props) => {
   const {
@@ -11,37 +12,34 @@ const TimerButtonBoard = (props: Props) => {
 
   return (
     <div className="flex mt-2">
-      <button
+      <Button
         onClick={handleClickStart}
-        className="w-20 h-8 rounded mx-2 bg-blue-400 text-white disabled:bg-gray-200 disabled:text-gray-400 text-sm font-light"
+        styles="w-20 h-8 rounded mx-2 bg-blue-400 text-white disabled:bg-gray-200 disabled:text-gray-400 text-sm font-light"
         disabled={
           props.isStart ||
           !(props.hours > 0 || props.minutes > 0 || props.seconds > 0)
         }
-      >
-        START
-      </button>
-      <button
+        children="START"
+      />
+      <Button
         onClick={handleClickRestart}
-        className="w-24 h-8 rounded mx-2 bg-blue-400 text-white disabled:bg-gray-200 disabled:text-gray-400 text-sm font-light"
+        styles="w-24 h-8 rounded mx-2 bg-blue-400 text-white disabled:bg-gray-200 disabled:text-gray-400 text-sm font-light"
         disabled={isRestart}
-      >
-        RESTART
-      </button>
-      <button
+        children="RESTART"
+      />
+      <Button
         onClick={handleClickStop}
-        className="w-16 h-8 rounded mx-2 bg-blue-400 text-white disabled:bg-gray-200 disabled:text-gray-400 text-sm font-light"
+        styles="w-16 h-8 rounded mx-2 bg-blue-400 text-white disabled:bg-gray-200 disabled:text-gray-400 text-sm font-light"
         disabled={!props.isStart || !isRestart}
-      >
-        STOP
-      </button>
-      <button
+        children="STOP"
+      />
+
+      <Button
         onClick={handleClickReset}
-        className="w-20 h-8 rounded mx-2 bg-blue-400 text-white disabled:bg-gray-200 disabled:text-gray-400 text-sm font-light"
+        styles="w-20 h-8 rounded mx-2 bg-blue-400 text-white disabled:bg-gray-200 disabled:text-gray-400 text-sm font-light"
         disabled={isRestart}
-      >
-        RESET
-      </button>
+        children="RESET"
+      />
     </div>
   )
 }
