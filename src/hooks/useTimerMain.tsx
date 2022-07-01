@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Timer } from '../types'
 import { calc, createTimer } from '../libs'
 
-export const useMain = () => {
+export const useTimerMain = () => {
   const [isStart, setIsStart] = useState(false)
 
   const [hours, setHours] = useState<number>(0)

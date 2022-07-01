@@ -1,5 +1,4 @@
-import { getByTestId, render, screen } from '@testing-library/react'
-import { BrowserRouter } from 'react-router-dom'
+import { render, screen } from '@testing-library/react'
 import App from '../App'
 import userEvent from '@testing-library/user-event'
 

@@ -1,7 +1,7 @@
 import TimerInputBoard from './TimerInputBoard'
 import TimerLine from './TimerLine'
 import TimerButtonBoard from './TimerButtonBoard'
-import { useMain } from '../../hooks/useMain'
+import { useTimerMain } from '../../hooks/useTimerMain'
 import { useState } from 'react'
 import TimeUpModal from '../modals/TimeUpModal'
 
@@ -21,7 +21,7 @@ const TimerMain = () => {
     handleChangeHours,
     handleChangeMinutes,
     handleChangeSeconds,
-  } = useMain()
+  } = useTimerMain()
 
   // TODO: とりあえず実装。hooksにもってく
   const [isModalOn, setIsModalOn] = useState(false)
